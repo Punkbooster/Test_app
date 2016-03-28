@@ -10,7 +10,13 @@ Movie.destroy_all
 Genre.destroy_all
 
 action = Genre.create!(name: 'Fiction')
+drama = Genre.create!(name: 'Drama')
+horror = Genre.create!(name: 'Horror')
 
-Movie.create!([ { title: "Batman", description: "Some description", genres: [action]  } ])
+Movie.create!([ { title: "Batman", description: "Some description", genres: [action]  },
+                { title: "Gone Girl", description: "Some description", genres: [action]  },
+                { title: "Aliens", description: "Some description", genres: [action, horror]  }
+
+ ])
 
 p "Created #{Movie.count} movies"

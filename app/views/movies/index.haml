@@ -1,5 +1,13 @@
 %h1 Welcome to our site!
 
-%div.wrapper
+%div.movies
   - @movies.each do |movie|
-    =link_to movie.title, movie
+    %h3
+      = link_to movie.title, movie
+    - movie.genres.each do |genre|
+      %div.label.label-primary
+        = genre.name
+
+%hr
+
+%div.genres
