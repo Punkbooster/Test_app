@@ -1,2 +1,13 @@
-%h3= @movie.title
-%p= @movie.description
+
+%h3
+  Movie title:
+  = @movie.title
+
+%p
+  Movie description:
+  = @movie.description
+
+.buttons
+  = link_to "Edit", edit_movie_path(@movie)
+  = link_to "Delete", movie_path, method: :delete, data: {confirm: "Are you sure?"}
+  = link_to "Back", root_path

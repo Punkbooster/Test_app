@@ -1,4 +1,4 @@
-class MoviesController < ActionController::Base
+class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :destroy, :update]
 
   def index
@@ -23,15 +23,19 @@ class MoviesController < ActionController::Base
   end
 
   def edit
-
   end
 
   def update
-
+    if @movie.update(movie_params)
+      redirect_to @movie
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-
+    @movie.destroy
+    redirect_to root_path
   end
 
   private
