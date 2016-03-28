@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Movie.destroy_all
+Genre.destroy_all
+
+action = Genre.create!(name: 'Fiction')
+
+Movie.create!([ { title: "Batman", description: "Some description", genres: [action]  } ])
+
+p "Created #{Movie.count} movies"
